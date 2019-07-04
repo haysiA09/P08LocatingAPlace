@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
                                 .title("HQ-North")
                                 .snippet("Block 333, Admiralty Ave 3, 765654 Operating hours: 10am-5pm,Tel:65433456")
                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
+                        float zoomLevel = 16.0f; //This goes up to 21
+                        map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_North, zoomLevel));
 
                     }
                 });
@@ -67,19 +70,24 @@ public class MainActivity extends AppCompatActivity {
                                 .snippet("Block 3A, Orchard Ave 3, 134542, Operating hours: 11am-8pm, Tel:67788652")
                                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
+                        float zoomLevel = 16.0f; //This goes up to 21
+                        map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_Central, zoomLevel));
+
                     }
                 });
 
                 east.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        LatLng poi_Central = new LatLng(1.363110, 103.962130);
+                        LatLng poi_east = new LatLng(1.363110, 103.962130);
                         Marker cp = map.addMarker(new
                                 MarkerOptions()
-                                .position(poi_Central)
-                                .title("Central")
+                                .position(poi_east)
+                                .title("East")
                                 .snippet("Block 555, Tampines Ave 3, 287788, Operating hours: 9am-5pm, Tel:66776677")
                                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                        float zoomLevel = 16.0f; //This goes up to 21
+                        map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_east, zoomLevel));
 
                     }
                 });
